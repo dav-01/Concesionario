@@ -9,6 +9,15 @@ class Tercero extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'id',
+        'cedula',
+        'nombre',
+        'apellido',
+        'celular',
+        'correo'
+    ];
+
     public function vehiculos(){
         return $this->hasMany(Vehiculo::class, 'id');
     }

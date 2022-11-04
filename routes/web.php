@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\TerceroController;
+use App\Http\Controllers\VehiculoController;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+
+Route::resource('tercero', TerceroController::class);
+Route::resource('vehiculo', VehiculoController::class);
