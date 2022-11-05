@@ -42,19 +42,53 @@
       
     </div>
   </div>
+</div><br><br>
+
+
+<div class="container-fluid">
+  <div class="row justify-content-between">
+  <div class="col-6">
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>CEDULA</th>
+          <th>NOMBRE</th>
+          <th>APELLIDO</th>
+          <th>CELULAR</th>
+          <th>CORREO</th>
+    
+        </tr>
+      </thead>
+      <tbody>
+        @foreach ($terceros as $tercero)
+        <tr>
+          <td>{{$tercero->id}}</td>
+          <td>{{$tercero->cedula}}</td>
+          <td>{{$tercero->nombre}}</td>
+          <td>{{$tercero->apellido}}</td>
+          <td>{{$tercero->celular}}</td>
+          <td>{{$tercero->correo}}</td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+  </div >
+
+  <div class="col-4">
+effeew
+  </div>
 </div>
+
+</div>
+
+
+
+
+
+
 
     
 @endsection
 
-{{-- @foreach ($vehiculos as $vehiculo)
 
-{{$vehiculo->placa}}
-    
-@endforeach --}}
-
-{{-- @foreach ($terceros as $tercero)
-
-{{$tercero->id}}
-    
-@endforeach --}}
