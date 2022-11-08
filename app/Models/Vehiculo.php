@@ -12,11 +12,12 @@ class Vehiculo extends Model
     protected $fillable = [
         'id',
         'placa',
-        'vim',
+        'vin',
         'modelo',
         'año',
         'color',
-        'kilometraje'
+        'kilometraje',
+        'id_tercero',
     ];
 
     function terceros(){

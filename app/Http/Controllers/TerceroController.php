@@ -12,36 +12,14 @@ use Yajra\DataTables\Contracts\DataTable;
 
 class TerceroController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
 
         $terceros = Tercero::all();
 
         return view('home', ['terceros' => $terceros]);
-
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $tercero = $request->all();
@@ -50,50 +28,21 @@ class TerceroController extends Controller
         return redirect()->route('home.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Tercero $tercero)
     {
         return view('home', ['tercero' => $tercero]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Tercero $tercero)
     {
         $tercero->fill(($request->input()));
         $tercero->saveOrFail();
-        return redirect()->route('product.index')->with("mensaje", "Producto actualizado");
+        return redirect()->route('home.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroy(Tercero $tercero)
     {
-        //
+        $tercero->delete();
+        return redirect()->route('home.index');
     }
 }
