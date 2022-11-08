@@ -1,7 +1,7 @@
 @extends('layouts')
 
 @section('section')
-    <!-- Tabla de Terceros, Modals de crear,actualizar,eliminar -->
+    <!-- Modals de crear terceros -->
 
 
     <div class="modal fade" id="CrearTercero" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -45,6 +45,9 @@
             </div>
         </div>
     </div><br><br>
+
+
+    <!-- Tabla de Terceros -->
 
     <div class="container-fluid">
         <div class="row justify-content-between">
@@ -98,6 +101,9 @@
                                                 </div>
                                                 <div class="modal-body">
 
+
+                                                    <!-- Modals de actualizar terceros -->
+
                                                     <form method="POST" action="{{ route('tercero.update', $tercero) }}">
                                                         @method('PUT')
                                                         @csrf
@@ -142,6 +148,8 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <!-- Modals de Eliminar terceros -->
 
                                     <div id="EliminarTercero" class="modal" tabindex="-1">
                                         <div class="modal-dialog">
@@ -280,17 +288,7 @@
                                         data-bs-whatever="@mdo"><a
                                             href="{{ route('vehiculo.destroy', $vehiculo) }}"></a><i
                                             class="fa-solid fa-trash"></i></button>
-
-
-                                   
-
-
-                                    
-
-                                    
                                 </td>
-
-
                             </tr>
                         @endforeach
 
@@ -369,7 +367,6 @@
                              </div>
                          </div>
                      </div>
-
 
                          <!-- Modals de eliminar vehiculos -->
 

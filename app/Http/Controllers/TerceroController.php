@@ -12,29 +12,23 @@ use Yajra\DataTables\Contracts\DataTable;
 
 class TerceroController extends Controller
 {
-    public function index()
-    {
-
-        $terceros = Tercero::all();
-
-        return view('home', ['terceros' => $terceros]);
-    }
 
     public function store(Request $request)
     {
+
+        // Funcion para crear terceros en la base de datos y luego redirigir a la vista home
+
         $tercero = $request->all();
 
         Tercero::create($tercero);
         return redirect()->route('home.index');
     }
 
-    public function edit(Tercero $tercero)
-    {
-        return view('home', ['tercero' => $tercero]);
-    }
-
     public function update(Request $request, Tercero $tercero)
     {
+
+        // Funcion para actualizar terceros en la base de datos y luego redirigir a la vista home
+
         $tercero->fill(($request->input()));
         $tercero->saveOrFail();
         return redirect()->route('home.index');
@@ -42,6 +36,7 @@ class TerceroController extends Controller
 
     public function destroy(Tercero $tercero)
     {
+        // Funcion para eliminar terceros en la base de datos y luego redirigir a la vista home
         $tercero->delete();
         return redirect()->route('home.index');
     }

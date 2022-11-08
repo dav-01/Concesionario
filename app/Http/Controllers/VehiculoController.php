@@ -7,13 +7,11 @@ use Illuminate\Http\Request;
 
 class VehiculoController extends Controller
 {
-    public function index()
-    {
-        return view('vehiculo', ['vehiculos' => Vehiculo::all()]);
-    }
 
     public function store(Request $request, Vehiculo $vehiculo)
     {
+
+        // Funcion para crear vehiculos en la base de datos y luego redirigir a la vista home
         $vehiculo = $request->all();
 
         Vehiculo::create($vehiculo);
