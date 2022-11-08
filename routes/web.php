@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TerceroController;
 use App\Http\Controllers\VehiculoController;
 use Illuminate\Contracts\Cache\Store;
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('home');
 // });
 
-Route::get('/', [TerceroController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 
 Route::resource('tercero', TerceroController::class);

@@ -9,6 +9,8 @@ class Tercero extends Model
 {
     use HasFactory;
 
+    protected $table = 'terceros';
+
     protected $fillable = [
         'id',
         'cedula',

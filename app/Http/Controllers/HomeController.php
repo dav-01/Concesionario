@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tercero;
+use App\Models\Vehiculo;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index(){
         $terceros = Tercero::all();
-        print($terceros);
-        return view('vehiculo', [$terceros]);
+        $vehiculos = Vehiculo::all();
+
+        return view('home', ['terceros' => $terceros, 'vehiculos' => $vehiculos]);
     }
 }

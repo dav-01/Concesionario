@@ -6,6 +6,10 @@ use App\Models\Tercero;
 use App\Models\Vehiculo;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+use DataTables;
+use Yajra\DataTables\Contracts\DataTable;
+
 class TerceroController extends Controller
 {
     /**
@@ -15,7 +19,11 @@ class TerceroController extends Controller
      */
     public function index()
     {
-        return view('home', ['terceros' => Tercero::all()]);
+
+        $terceros = Tercero::all();
+
+        return view('home', ['terceros' => $terceros]);
+
     }
 
     /**
@@ -39,8 +47,7 @@ class TerceroController extends Controller
         $tercero = $request->all();
 
         Tercero::create($tercero);
-        return view('home');
-    
+        return redirect()->route('home.index');
     }
 
     /**
@@ -60,9 +67,9 @@ class TerceroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tercero $tercero)
     {
-        //
+        return view('home', ['tercero' => $tercero]);
     }
 
     /**
@@ -72,9 +79,11 @@ class TerceroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tercero $tercero)
     {
-        //
+        $tercero->fill(($request->input()));
+        $tercero->saveOrFail();
+        return redirect()->route('product.index')->with("mensaje", "Producto actualizado");
     }
 
     /**
